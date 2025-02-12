@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Road Not Taken</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; }
+        button { display: block; margin: 20px 0; padding: 10px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <h1>The Road Not Taken</h1>
+    <p>By Robert Frost</p>
+    
+    <pre>
+Two roads diverged in a yellow wood,
+And sorry I could not travel both
+And be one traveler, long I stood
+And looked down one as far as I could
+To where it bent in the undergrowth;
+
+Then took the other, as just as fair,
+And having perhaps the better claim,
+Because it was grassy and wanted wear;
+Though as for that the passing there
+Had worn them really about the same,
+
+And both that morning equally lay
+In leaves no step had trodden black.
+Oh, I kept the first for another day!
+Yet knowing how way leads on to way,
+I doubted if I should ever come back.
+
+I shall be telling this with a sigh
+Somewhere ages and ages hence:
+Two roads diverged in a wood, and I—
+I took the one less traveled by,
+And that has made all the difference.
+    </pre>
+
+    <button onclick="alert('Uh oh, this login button isn\'t working...')">Login</button>
+    
+    <script>
+        async function secretLogin(username) {
+            try {
+                let response = await fetch("https://your-api-endpoint.com/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username })
+                });
+                
+                let data = await response.json();
+                
+                if (data.success) {
+                    console.log("Access granted! Your secret message is: 'Well done, you found it!'");
+                } else {
+                    console.log("Access denied.");
+                }
+            } catch (error) {
+                console.error("Error connecting to the server.");
+            }
+        }
+    </script>
+</body>
+</html>
