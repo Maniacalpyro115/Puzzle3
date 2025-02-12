@@ -43,21 +43,21 @@ And that has made all the difference.
     </pre>
     
     <script>
-        async function secretLogin(keyword) {
+        async function login(word) {
             try {
                 let response = await fetch("https://sparkling-disk-ec9e.j-murawski1515.workers.dev/", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ keyword })
+                    body: JSON.stringify({ word })
                 });
                 
                 let data = await response.json();
-                console.log(data);
+
                 if (data.success) {
                     window.location.href = `http://blueshift.my/${data.route}`;
                 }
             } catch (error) {
-                console.error("Error connecting.");
+                console.error("Bro learn how to connect.");
             }
         }
     </script>
