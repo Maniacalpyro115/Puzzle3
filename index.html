@@ -52,7 +52,7 @@ And that has made all the difference.
                 });
                 
                 let data = await response.json();
-                
+                console.log(data);
                 if (data.success) {
                     window.location.href = `http://blueshift.my/${data.route}`;
                 }
