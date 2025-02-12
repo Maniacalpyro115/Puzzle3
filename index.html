@@ -6,11 +6,13 @@
     <title>The Road Not Taken</title>
     <style>
         body { font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; }
-        button { display: block; margin: 20px 0; padding: 10px; }
+        .login-button { position: absolute; top: 10px; right: 10px; padding: 10px; }
         .hidden { display: none; }
     </style>
 </head>
 <body>
+    <button class="login-button" onclick="alert('Guess I forgot to hook this button up...')">Login</button>
+    
     <h1>The Road Not Taken</h1>
     <p>By Robert Frost</p>
     
@@ -27,7 +29,7 @@ Because it was grassy and wanted wear;
 Though as for that the passing there
 Had worn them really about the same,
 
-And both that morning equally lay
+And both that evening equally lay
 In leaves no step had trodden black.
 Oh, I kept the first for another day!
 Yet knowing how way leads on to way,
@@ -39,27 +41,23 @@ Two roads diverged in a wood, and I—
 I took the one less traveled by,
 And that has made all the difference.
     </pre>
-
-    <button onclick="alert('Uh oh, this login button isn\'t working...')">Login</button>
     
     <script>
-        async function secretLogin(username) {
+        async function secretLogin(keyword) {
             try {
-                let response = await fetch("https://your-api-endpoint.com/login", {
+                let response = await fetch("https://sparkling-disk-ec9e.j-murawski1515.workers.dev/", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ username })
+                    body: JSON.stringify({ keyword })
                 });
                 
                 let data = await response.json();
                 
                 if (data.success) {
-                    console.log("Access granted! Your secret message is: 'Well done, you found it!'");
-                } else {
-                    console.log("Access denied.");
+                    window.location.href = `http://blueshift.my/${data.route}`;
                 }
             } catch (error) {
-                console.error("Error connecting to the server.");
+                console.error("Error connecting.");
             }
         }
     </script>
