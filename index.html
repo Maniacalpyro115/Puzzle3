@@ -55,6 +55,8 @@ And that has made all the difference.
 
                 if (data.success) {
                     window.location.href = `http://blueshift.my/${data.route}`;
+                } else {
+                    alert(data.message || "Something went wrong. Please try again.");
                 }
             } catch (error) {
                 console.error("Bro learn how to connect.");
